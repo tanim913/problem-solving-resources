@@ -9,7 +9,7 @@ void print_map (map <string, int> &m)
     cout << "Size of the map is : " << m.size() <<endl;
     for (auto &pr :m)
     {
-        cout << pr.first << " "<< pr.second <<endl; ///o(log(n))
+        cout << pr.first << " : "<< pr.second <<endl; ///o(log(n))
     }
 
 }
