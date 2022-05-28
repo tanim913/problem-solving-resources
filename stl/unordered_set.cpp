@@ -27,4 +27,6 @@ int main ()
         cout << "found in the set" << endl;
         cout << *it1 << endl;
     }
+
+    //if(s1.find(str) == s.end()) then the string doesnt exist on the set
 }
