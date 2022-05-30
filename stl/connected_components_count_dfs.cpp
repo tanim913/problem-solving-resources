@@ -5,19 +5,18 @@ const int N = 1e3+10;
 vector <int> g[N];
 bool vis [N];
 
-
 void DFS (int vertex)
 {
     ///take and action on vertex after entering the vertex
 
 
     if(vis[vertex]) return;
-    cout << vertex << "\n";
+    //cout << vertex << "\n";
     vis [vertex] = true;
 
     for(int child : g[vertex])
     {
-        ///if(vis[child]) continue;
+        //if(vis[child]) continue;
         ///take an action on child before entering the child node
 
         //cout << "\nParent : " << vertex << " Children : " << child << endl;
@@ -28,12 +27,11 @@ void DFS (int vertex)
     ///take and action on vertex before exiting the vertex
 }
 
-/// Time Complexity : O(V+E)
 int main ()
 {
 
     int vertice, edge;
-    cout << "Enter the number of Vertices and Edges : \n";
+    //cout << "Enter the number of Vertices and Edges : \n";
     cin >> vertice >> edge;
 
     for (int i = 0; i<edge; i++)
@@ -44,12 +42,21 @@ int main ()
         g[v2].push_back(v1);
 
     }
-    int start;
-    cout << "Enter Start node : ";
-    cin >> start;
+    int component_cnt =0;
 
-    DFS(start);
+    for (int i = 1; i<= vertice; i++) /// for each vertex checking if its visited
+    {
+        if(vis[i])
+        {
+            continue;
+        }
+        DFS(i);
+        component_cnt ++;
 
+    }
+    cout << component_cnt << endl;
+
+    return 0;
 
 
 
