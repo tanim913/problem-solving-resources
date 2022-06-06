@@ -12,14 +12,14 @@ int main ()
     int vertice, edge;
     cout << "Enter the number of Vertices and Edges : ";
     cin >> vertice >> edge;
-    
+
     ///taking input of the graph
     for (int i = 0; i<edge; i++)
     {
         int v1,v2, weight;
         cin >> v1 >> v2 >> weight ;
         g[v1].push_back({v2,weight});
-        g[v2].push_back({v2,weight});
+        g[v2].push_back({v1,weight});
 
         g2[v1][v2] = weight;
         g2[v2][v1] = weight;
