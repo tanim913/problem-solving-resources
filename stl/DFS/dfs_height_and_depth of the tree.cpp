@@ -32,7 +32,7 @@ int main ()
 {
 
     int vertice;
-    cout << "Enter the number of Vertices and Edges : \n";
+    cout << "Enter the number of Vertices : \n";
     cin >> vertice;
 
     for (int i = 0; i<vertice-1; i++)
