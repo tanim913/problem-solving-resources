@@ -1,36 +1,27 @@
 #include <bits/stdc++.h>
+#define s_t 4
 using namespace std;
 
 const int inf = 1e9+10;
-bool vis[8][8];
-int lvl[8][8];
 
-int get_x(string x)
-{
-    return x[0] - 'a'; // removing 'a' from aplhabet char to know the nth letter, counting from 0 index
-}
+int graph[s_t][s_t];
+bool vis[s_t][s_t];
+int lvl[s_t][s_t];
 
-int get_y(string x)
-{
-    return x[1] - '1'; // removing '1' from numeric char to know the nth number, counting from 0 index
-}
+
 
 bool valid (int x, int y)
 {
-    return (x>=0 && y>=0 && x<8 && y<8);
+    return (x>=0 && y>=0 && x<s_t && y<s_t);
 }
 
 vector <pair <int,int>> directions =
 {
-    {-1,2}, {1,2}, {-1,-2}, {1,-2}, {2,1}, {2,-1}, {-2,1}, {-2,-1}
+    {0,1}, {0,-1}, {1,0}, {-1,0}
 };
 
-int bfs(string source, string dest)
+int bfs(int src_x, int src_y, int dest_x,int dest_y)
 {
-    int src_x = get_x(source);
-    int src_y = get_y(source);
-    int dest_x = get_x(dest);
-    int dest_y = get_y(dest);
 
     queue <pair<int,int>> q;
     q.push({src_x, src_y});
@@ -49,6 +40,7 @@ int bfs(string source, string dest)
             int dir_y = dir.second + y;
 
             if(!valid(dir_x, dir_y))continue;
+            if(graph[dir_x][dir_y] !=1)continue;
 
             if(!vis[dir_x][dir_y])
             {
@@ -65,9 +57,9 @@ int bfs(string source, string dest)
 }
 void reset()
 {
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < s_t; i++)
     {
-        for(int j = 0; j<8; j++)
+        for(int j = 0; j<s_t; j++)
         {
 
             vis[i][j] = false;
@@ -84,9 +76,16 @@ int main ()
     while(t--)
     {
         reset();
-        string src, dest;
-        cin >> src >> dest;
-        cout << bfs(src, dest) << endl;
+        for(int i = 0; i<s_t; i++)
+        {
+            for (int j = 0; j<s_t; j++)
+            {
+                cin >> graph[i][j];
+            }
+        }
+        int s_x,s_y, d_x, d_y;
+        cin >> s_x >> s_y >> d_x >> d_y;
+        cout << bfs(s_x,s_y, d_x, d_y) << endl;
     }
     return 0;
 }
