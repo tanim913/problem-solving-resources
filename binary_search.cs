@@ -45,3 +45,16 @@ class Program
    
 
 }
+
+/***
+1 2 3 4 5 6 7 8 9 10 11
+
+x=7
+mid value is less than x
+left = mid+1
+
+x=4
+mid value is greater than x 
+right = mid-1
+
+***/
