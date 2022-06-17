@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void rotate(int arr[], int n)
+void rot(int arr[], int n)
 {
     int v = arr[n-1];
     for (int i= n-2; i>=0; i--)
@@ -9,6 +9,7 @@ void rotate(int arr[], int n)
         arr[i+1] = arr[i];
     }
     arr[0] = v;
+
 
 }
 
@@ -23,7 +24,10 @@ int main()
         cin >> ar[i];
     }
 
-    rotate(ar,n);
+//    vector <int> v;
+//    rotate(v.begin(),v.begin()+v.size()-k,v.end());
+
+    rot(ar,n);
 
     for(int i =0; i<n; i++)
     {
