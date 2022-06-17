@@ -25,7 +25,8 @@ int main()
     }
 
 //    vector <int> v;
-//    rotate(v.begin(),v.begin()+v.size()-k,v.end());
+//    rotate(v.begin(),v.begin()+v.size()-k,v.end()); right-shift
+//    rotate(v.begin(),v.begin()+k,v.end()); left-shift
 
     rot(ar,n);
 
